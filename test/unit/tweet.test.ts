@@ -8,6 +8,12 @@ describe("Tweet", () => {
             expect(result.isSuccess()).toEqual(false);
             expect(result.getTweet()).toBeNull();
        });
+
+       test("CreateShouldReplaceAllInstancesOfBadWordsWithTheCensoredVersion", () => {
+            const result = Tweet.create("I don't give a fuck fuck no Fuck.");
+
+            expect(result.getTweet()!.text()).toEqual("I don't give a f**k f**k no F**k.");
+       });
     });
 
     describe("text", () => {

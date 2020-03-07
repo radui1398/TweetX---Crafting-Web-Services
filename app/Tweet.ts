@@ -1,12 +1,15 @@
 import Result from "./Result";
 
 export default class Tweet {
-    private _text: string;
+    private readonly _text: string;
 
     public static create(message: string){
         if(!message){
             return Result.failed();
         }
+
+        message = message.replace(/Fuck/g, "F**k").replace(/fuck/g, "f**k");
+
         return Result.ok(new Tweet(message));
     }
 

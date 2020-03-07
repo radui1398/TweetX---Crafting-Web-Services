@@ -2,10 +2,10 @@ import Tweet from "./Tweet";
 
 export default class Result {
     private _status: boolean;
-    private _tweet: Tweet | null;
+    private readonly _tweet: Tweet | null;
 
     private constructor(tweet: Tweet | null) {
-        this._status = tweet ? true: false;
+        this._status = !!tweet;
         this._tweet = tweet;
     }
 

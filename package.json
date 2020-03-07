@@ -1,0 +1,11 @@
+{
+  "name": "tweetx-web-service",
+  "version": "1.0.0",
+  "description": "The TweetX web service thath provides CRUD capabilities",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}

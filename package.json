@@ -3,9 +3,15 @@
   "version": "1.0.0",
   "description": "The TweetX web service thath provides CRUD capabilities",
   "scripts": {
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "test": "jest --config jest.config.js",
+    "ts-jest": "ts-jest"
   },
   "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.0",
+    "jest": "^25.1.0",
+    "ts-jest": "^25.2.1",
     "typescript": "^3.8.3"
   }
 }

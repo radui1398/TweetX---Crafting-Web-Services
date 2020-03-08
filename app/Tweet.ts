@@ -2,9 +2,10 @@ import Result from "./Result";
 
 export default class Tweet {
     private readonly _text: string;
+    private readonly _fullText: string | null = null;
 
-    public static create(message: string){
-        if(!message){
+    public static create(message: string) {
+        if (!message) {
             return Result.failed();
         }
 
@@ -16,10 +17,16 @@ export default class Tweet {
     private constructor(message: string) {
         const cleanMessage = message.trim();
 
-        if(cleanMessage.length === 0){
+        if (cleanMessage.length === 0) {
             console.log('Send: Your message is empty');
 
             this._text = 'Empty tweet.';
+            return;
+        }
+
+        if(cleanMessage.length > 100){
+            this._fullText = cleanMessage;
+            this._text = cleanMessage.slice(0,100) + '...';
             return;
         }
 
@@ -29,5 +36,9 @@ export default class Tweet {
 
     public text(): string {
         return this._text;
+    }
+
+    public fullText(): string | null{
+        return this._fullText;
     }
 }

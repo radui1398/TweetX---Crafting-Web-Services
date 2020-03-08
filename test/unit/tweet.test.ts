@@ -23,6 +23,20 @@ describe("Tweet", () => {
 
            expect(result.getTweet()!.text()).toEqual(input);
         });
+
+        test("TextShouldReturnNoMoreThan100Characters", () =>{
+           const input = "ASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWSD";
+           const result = Tweet.create(input);
+
+           expect(result.getTweet()!.text()).toEqual("ASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWASDQWEFFDQWA...");
+        });
+
+        test("TextShouldHaveANullFullTextIfThePassedStringHasALengthLowerThan100", ()=>{
+            const input = "Hello! ";
+            const result = Tweet.create(input);
+
+            expect(result.getTweet()!.fullText()).toBeNull();
+        });
     });
 });
 

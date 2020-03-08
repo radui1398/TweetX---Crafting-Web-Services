@@ -1,4 +1,4 @@
-import Tweet from "./Tweet";
+import Tweet from "./domain/entities/Tweet";
 
 export default class Result {
     private _status: boolean;

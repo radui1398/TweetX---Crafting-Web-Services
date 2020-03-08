@@ -1,4 +1,4 @@
-import Tweet from '../../app/Tweet';
+import Tweet from '../../app/domain/entities/Tweet';
 
 describe("Tweet", () => {
     describe("create", ()=>{
